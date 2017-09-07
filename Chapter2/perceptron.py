@@ -46,7 +46,7 @@ class Perceptron(object):
             for xi, target in zip(X, y):
                 update = self.eta * (target - self.predict(xi))
                 self.w_[1:] += update * xi
-                self.w_[0] += update
+                self.w_[0] += update # zero weight is the threshold
                 errors += int(update != 0.0)
             self.errors_.append(errors)
         return self
